@@ -51,5 +51,6 @@ function keyPressed() {
 		star.velocityX=0;
 	}
 	if(starBody.position.y>470){
+		Matter.Body.setStatic(starBody,true);
 	}
 }
