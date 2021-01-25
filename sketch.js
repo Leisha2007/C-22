@@ -1,5 +1,5 @@
 var starImg, fairyImg, bgImg;
-var fairy , fairyVoice;
+var fairy , fairyVoice,fairyBody;
 var star, starBody;
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -25,7 +25,9 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 	starBody = Bodies.circle(650,30,5,{restitution:0.5, isStatic:true});
+	fairyBody = Bodies.circle(130,520,5,{restitition:0.5, isStatic:true});
 	World.add(world, starBody);
+	World.add(world,fairyBody);
 	Engine.run(engine);
 }
 
@@ -52,5 +54,6 @@ function keyPressed() {
 	}
 	if(starBody.position.y>470){
 		Matter.Body.setStatic(starBody,true);
+		Matter.Body.setStatic(fairyBody,true);
 	}
 }
